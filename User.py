@@ -7,3 +7,10 @@ class User:
         self.email = email
         self.accountNumber = accountNumber
         self.amount = amount
+
+    def printUser(self):
+        print(self.firstName)
+        print(self.lastName)
+        print(self.username)
+        print(self.email)
+        print(self.amount)

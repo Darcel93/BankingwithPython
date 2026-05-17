@@ -4,7 +4,7 @@ from Menu import Menu
 
 menu = Menu()
 banking = Bank()
-
+userdata =[]
 def main():
     select = ""
     while select != "1" and select != "2"  and select != "3":
@@ -16,6 +16,9 @@ def main():
             signIn()
         if select == "2":
             signUp()
+        select = ""
+
+
 
 #Will come back to after database
 def signIn():
@@ -27,6 +30,10 @@ def signIn():
         selection = input("\n 1. Enter    2. Cancel\n")
         if selection != "1" and selection != "2":
             print("\nNot a valid option, please try again \n")
+    for user in userdata:
+        if userName == user.username and password == user.password:
+            print("Login Succesful")
+
 
 def signUp():
     nameFirst = input("Enter First Name: ")
@@ -40,8 +47,12 @@ def signUp():
         pWord =input("Create Password: ")
         confirm = input("Confirm Password: ")
     register = User(nameFirst, nameLast, selectUser, pWord, email)
-    print(register.username)
-    print(register.amount)
+    userdata.append(register)
+
+
+
+while True:
+    main()
 
 
 
@@ -49,6 +60,7 @@ def signUp():
 
 
 
-main()
+
+#main()
 #signIn()
 #signUp()
