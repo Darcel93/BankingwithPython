@@ -12,6 +12,10 @@ def main():
         select = input("\n Please select an option: ")
         if select != "1" and select != "2"  and select != "3":
             print("Invalid selection, please try again \n")
+        if select == "1":
+            signIn()
+        if select == "2":
+            signUp()
 
 #Will come back to after database
 def signIn():
@@ -45,6 +49,6 @@ def signUp():
 
 
 
-#main()
+main()
 #signIn()
-signUp()
+#signUp()
