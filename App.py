@@ -56,11 +56,11 @@ def accountHome(newUser):
     select = input("\n Please select an option: ")
     if select == "3":
         return
+    if select == "1":
+        print("Deposits \n")
+        newAmount = input("Depoist Amount: ")
+        banking.deposits(str(newAmount),str(accountAmount))
 
-
-#def depositAmount(newAmount):
-   #freshDeposit =  banking.
-   #input("Deposit Amount: ")
 
 
 while True:
