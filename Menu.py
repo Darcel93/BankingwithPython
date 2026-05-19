@@ -9,8 +9,9 @@ class Menu:
 
 
     def homePage(self, accountNumber, currentBalance):
+        print("Account Home")
         print("Account Number: " + accountNumber)
-        print("Current Balance: " + currentBalance + "\n")
+        print("Current Balance: " + str(currentBalance) + "\n")
         print("1. Deposits")
         print("2. Withdrawls")
         print("3. Logout")

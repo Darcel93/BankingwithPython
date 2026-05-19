@@ -1,3 +1,4 @@
+
 from User import User
 from Bank import Bank
 from Menu import Menu
@@ -5,6 +6,7 @@ from Menu import Menu
 menu = Menu()
 banking = Bank()
 userdata =[]
+
 def main():
     select = ""
     while select != "1" and select != "2"  and select != "3":
@@ -12,11 +14,7 @@ def main():
         select = input("\n Please select an option: ")
         if select != "1" and select != "2"  and select != "3":
             print("Invalid selection, please try again \n")
-        if select == "1":
-            signIn()
-        if select == "2":
-            signUp()
-        select = ""
+    return select
 
 
 
@@ -30,9 +28,10 @@ def signIn():
         selection = input("\n 1. Enter    2. Cancel\n")
         if selection != "1" and selection != "2":
             print("\nNot a valid option, please try again \n")
-    for user in userdata:
-        if userName == user.username and password == user.password:
-            print("Login Succesful")
+    for currentUser in userdata:
+        if userName == currentUser.username and password == currentUser.password:
+            print("Login Successful")
+            return currentUser
 
 
 def signUp():
@@ -46,13 +45,31 @@ def signUp():
         print("\n Passwords do not match, please re-enter password \n")
         pWord =input("Create Password: ")
         confirm = input("Confirm Password: ")
-    register = User(nameFirst, nameLast, selectUser, pWord, email)
-    userdata.append(register)
+    newAccount = User(nameFirst, nameLast, selectUser, pWord, email, "Z12345678")
+    userdata.append(newAccount)
+    return newAccount
 
+def accountHome(newUser):
+    accountNumber = newUser.accountNumber
+    accountAmount = newUser.amount
+    menu.homePage(accountNumber, accountAmount)
+    select = input("\n Please select an option: ")
+    if select == "3":
+        return
+
+
+#def depositAmount(newAmount):
+   #freshDeposit =  banking.
+   #input("Deposit Amount: ")
 
 
 while True:
-    main()
+    choice = main()
+    if choice == "3":
+        print("Exiting Application")
+        break
+    account = signIn() if choice == "1" else signUp()
+    accountHome(account)
 
 
 
@@ -61,6 +78,3 @@ while True:
 
 
 
-#main()
-#signIn()
-#signUp()
