@@ -15,5 +15,5 @@ class Bank:
 
     def is_zero(self, amount):
         if amount == 0:
-            raise Exception("0 is not a valid amount")
+            raise Exception("Zero is not a valid amount")
 

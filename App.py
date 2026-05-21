@@ -50,16 +50,26 @@ def signUp():
     return newAccount
 
 def accountHome(newUser):
-    accountNumber = newUser.accountNumber
-    accountAmount = newUser.amount
-    menu.homePage(accountNumber, accountAmount)
-    select = input("\n Please select an option: ")
-    if select == "3":
-        return
-    if select == "1":
-        print("Deposits \n")
-        newAmount = input("Depoist Amount: ")
-        banking.deposits(str(newAmount),str(accountAmount))
+    select = ""
+    while select != "3":
+        accountNumber = newUser.accountNumber
+        accountAmount = newUser.amount
+        menu.homePage(accountNumber, accountAmount)
+        try:
+            select = input("\n Please select an option: ")
+            if select == "1":
+                print("Deposits \n")
+                newAmount = input("Depoist Amount: ")
+                newUser.amount = banking.deposits(int(newAmount), accountAmount)
+            if select == "2":
+                print("Withdrawals \n")
+                newAmount = input("Withdrawal Amount: ")
+                newUser.amount = banking.withdraw(accountAmount, int(newAmount))
+        except ValueError as v:
+            print("Incorrect Value")
+        except Exception as e:
+            print(f"Error: {e}")
+
 
 
 
@@ -70,7 +80,6 @@ while True:
         break
     account = signIn() if choice == "1" else signUp()
     accountHome(account)
-
 
 
 
