@@ -30,7 +30,7 @@ def signIn():
             print("\nNot a valid option, please try again \n")
     for currentUser in userdata:
         if userName == currentUser.username and password == currentUser.password:
-            print("Login Successful")
+            print("\nLogin Successful\n")
             return currentUser
 
 
@@ -45,6 +45,7 @@ def signUp():
         print("\n Passwords do not match, please re-enter password \n")
         pWord =input("Create Password: ")
         confirm = input("Confirm Password: ")
+    print("\n Account Created Successfully!\n")
     newAccount = User(nameFirst, nameLast, selectUser, pWord, email, "Z12345678")
     userdata.append(newAccount)
     return newAccount
@@ -65,10 +66,11 @@ def accountHome(newUser):
                 print("Withdrawals \n")
                 newAmount = input("Withdrawal Amount: ")
                 newUser.amount = banking.withdraw(accountAmount, int(newAmount))
+            print("")
         except ValueError as v:
             print("Incorrect Value")
         except Exception as e:
-            print(f"Error: {e}")
+            print(f"Error: {e} \n")
 
 
 
@@ -76,10 +78,13 @@ def accountHome(newUser):
 while True:
     choice = main()
     if choice == "3":
-        print("Exiting Application")
+        print("Exiting Application \n")
         break
     account = signIn() if choice == "1" else signUp()
-    accountHome(account)
+    if account == None:
+        print("\nError: Login or Registration invalid \n")
+    else:
+        accountHome(account)
 
 
 

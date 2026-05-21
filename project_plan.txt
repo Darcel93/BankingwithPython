@@ -6,3 +6,8 @@ Email
 Password
 accountNumber
 amount
+
+To Do List:
+Clean up print statements
+Clean up code, optimize
+add database
