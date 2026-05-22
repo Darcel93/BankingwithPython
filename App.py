@@ -8,12 +8,12 @@ banking = Bank()
 userdata =[]
 
 def main():
-    select = ""
-    while select != "1" and select != "2"  and select != "3":
+    while True:
         menu.mainMenu()
         select = input("\n Please select an option: \n")
-        if select != "1" and select != "2"  and select != "3":
-            print("Invalid selection, please try again \n")
+        if select in ("1", "2", "3"):
+            break
+        print("Invalid selection, please try again \n")
     return select
 
 
