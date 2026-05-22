@@ -2,7 +2,7 @@
 class Menu:
 
     def mainMenu(self):
-        print("Main Menu\n")
+        print("\nMain Menu\n")
         print("1. Login")
         print("2. Register")
         print("3. Exit")

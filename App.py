@@ -10,28 +10,36 @@ userdata =[]
 def main():
     while True:
         menu.mainMenu()
-        select = input("\n Please select an option: \n")
+        select = input("\n Please select an option: ")
         if select in ("1", "2", "3"):
-            break
+            return select
         print("Invalid selection, please try again \n")
-    return select
+
 
 
 
 #Will come back to after database
 def signIn():
-    print("Login \n")
-    userName = input("Please Enter Username: ")
-    password = input("Please Enter Password: ")
-    selection = ""
-    while selection != "1" and selection != "2":
-        selection = input("\n 1. Enter    2. Cancel\n")
-        if selection != "1" and selection != "2":
+    while True:
+        print("***Login*** \n")
+        userinfo = (input("Please Enter Username: "), input("Please Enter Password: "))
+        print("\n***Would you like to Continue?***")
+        selection = input("\n 1. Yes, Continue\n" " 2. Return to Main Menu\n")
+        if selection not in ("1", "2"):
             print("\nNot a valid option, please try again \n")
-    for currentUser in userdata:
-        if userName == currentUser.username and password == currentUser.password:
-            print("\nLogin Successful\n")
-            return currentUser
+            continue
+        if selection == "2":
+            break
+        for currentUser in userdata:
+                if currentUser.username == userinfo[0] and currentUser.password == userinfo[1]:
+                    print("\nLogin Successful\n")
+                    return currentUser
+        raise Exception ("\n***Username or Password Incorrect, Please Try Again***\n")
+
+
+
+
+
 
 
 def signUp():
@@ -81,11 +89,12 @@ while True:
     if choice == "3":
         print("Exiting Application \n")
         break
-    account = signIn() if choice == "1" else signUp()
-    if account == None:
-        print("\nError: Login or Registration invalid \n")
-    else:
-        accountHome(account)
+    try:
+        account = signIn() if choice == "1" else signUp()
+        if account != None:
+            accountHome(account)
+    except Exception as e:
+        print(e)
 
 
 
