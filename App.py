@@ -24,7 +24,7 @@ def signIn():
         print("***Login*** \n")
         userinfo = (input("Please Enter Username: "), input("Please Enter Password: "))
         print("\n***Would you like to Continue?***")
-        selection = input("\n 1. Yes, Continue\n" " 2. Return to Main Menu\n")
+        selection = input("\n 1. Yes, Continue\n" " 2. Return to Main Menu\n" "\n")
         if selection not in ("1", "2"):
             print("\nNot a valid option, please try again \n")
             continue
