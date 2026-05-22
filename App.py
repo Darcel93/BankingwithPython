@@ -11,7 +11,7 @@ def main():
     select = ""
     while select != "1" and select != "2"  and select != "3":
         menu.mainMenu()
-        select = input("\n Please select an option: ")
+        select = input("\n Please select an option: \n")
         if select != "1" and select != "2"  and select != "3":
             print("Invalid selection, please try again \n")
     return select
@@ -58,17 +58,18 @@ def accountHome(newUser):
         menu.homePage(accountNumber, accountAmount)
         try:
             select = input("\n Please select an option: ")
+            print()
             if select == "1":
-                print("Deposits \n")
+                print("\nDeposits \n")
                 newAmount = input("Depoist Amount: ")
                 newUser.amount = banking.deposits(int(newAmount), accountAmount)
             if select == "2":
-                print("Withdrawals \n")
+                print("\nWithdrawals \n")
                 newAmount = input("Withdrawal Amount: ")
                 newUser.amount = banking.withdraw(accountAmount, int(newAmount))
             print("")
         except ValueError as v:
-            print("Incorrect Value")
+            print("Incorrect Value \n")
         except Exception as e:
             print(f"Error: {e} \n")
 
