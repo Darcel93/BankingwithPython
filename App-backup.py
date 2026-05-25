@@ -79,7 +79,21 @@ def signUp():
 
 
 
-
+ try:
+            select = getAnswer("\n Please select an option: ")
+            # if select not in ("1", "2","3"):
+            #         raise ValueError
+            # print()
+            # if select == "1":
+            #     print("\nDeposits \n")
+            #     newAmount = getAnswer("Depoist Amount: ")
+            #     newUser.amount = banking.deposits(int(newAmount), accountAmount)
+            # if select == "2":
+            #     print("\nWithdrawals \n")
+            #     newAmount = getAnswer("Withdrawal Amount: ")
+            #     newUser.amount = banking.withdraw(accountAmount, int(newAmount))
+            # else:
+            #     break
 
 
 main()
